@@ -76,3 +76,6 @@ public class JWTConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 }
+
+
+//Teste de Branch
