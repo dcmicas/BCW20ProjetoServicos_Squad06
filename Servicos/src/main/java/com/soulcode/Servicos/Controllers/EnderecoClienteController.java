@@ -53,7 +53,4 @@ public class EnderecoClienteController {
         enderecoClienteService.editarEndereco(enderecoCliente);
         return ResponseEntity.ok().body(enderecoCliente);
     }
-
-
-
 }
