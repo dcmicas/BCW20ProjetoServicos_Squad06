@@ -1,0 +1,1057 @@
+{
+	"info": {
+		"_postman_id": "151d1b13-d8fe-4b30-9b0d-9a25d2680ab7",
+		"name": "BCW20-Servicos_Squad06",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21374227"
+	},
+	"item": [
+		{
+			"name": "Cargos",
+			"item": [
+				{
+					"name": "/servicos/cargos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/cargos",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"cargos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/cargos/{idCargo}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/cargos/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"cargos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/cargos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos\",\r\n    \"salario\": 5500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/cargos",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"cargos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/cargos/{idCargo}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos e recebidos\",\r\n    \"salario\": 6500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/cargos/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"cargos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/cargos/{idCargo}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/cargos/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"cargos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Este é o endpoint de cargos da aplicação"
+		},
+		{
+			"name": "Chamados",
+			"item": [
+				{
+					"name": "/servicos/chamados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/chamados",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamados/{idChamado}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/chamados/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamadosPeloStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/chamadosPeloStatus",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamadosPeloStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamados/{idCliente}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/chamados/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamadosPorIntervaloData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/chamadosPorIntervaloData",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamadosPorIntervaloData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamadosPeloFuncionario/{idFuncionario}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos//chamadosPeloFuncionario/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"",
+								"chamadosPeloFuncionario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamados",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José Carlos\",\r\n    \"email\": \"jose.carlos5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/chamados",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamados/{idChamado}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José Carlos Antonio\",\r\n    \"email\": \"jose.carlos5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/chamados/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamadosAtribuirFuncionario/{idChamado}/{idFuncionario}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José Carlos Antonio\",\r\n    \"email\": \"jose.carlos5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/chamadosAtribuirFuncionario/1/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamadosAtribuirFuncionario",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamadosModificarStatus/{idChamado}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José Carlos Antonio\",\r\n    \"email\": \"jose.carlos5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/chamadosModificarStatus/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamadosModificarStatus",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/chamados/{idChamado}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/chamados/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"chamados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "/servicos/clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/clientes",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/clientes/{idCliente}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/clientes/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José Carlos\",\r\n    \"email\": \"jose.carlos5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/clientes",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/clientes/{idCliente}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José Carlos Antonio\",\r\n    \"email\": \"jose.carlos5@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/clientes/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/clientes/{idCliente}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/clientes/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereço Cliente",
+			"item": [
+				{
+					"name": "/servicos/enderecoCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/enderecoCliente",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"enderecoCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/enderecoCliente/{idEnderecoCli}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/enderecoCliente/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"enderecoCliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/enderecoCliente/{idCliente}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos\",\r\n    \"salario\": 5500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/enderecoCliente/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"enderecoCliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/enderecoCliente/{idEndereco}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos e recebidos\",\r\n    \"salario\": 6500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/enderecoCliente/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"enderecoCliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Este é o endpoint de cargos da aplicação"
+		},
+		{
+			"name": "Funcionario",
+			"item": [
+				{
+					"name": "/servicos/funcionarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/funcionarios",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/funcionarios/{idFuncionario}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/funcionarios/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/funcionariosDoCargo/{idCargo}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/funcionariosDoCargo/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionariosDoCargo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/funcionariosEmail/{email}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/funcionariosEmail/email",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionariosEmail",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/funcionarios/{idCargo}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos\",\r\n    \"salario\": 5500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/funcionarios/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/funcionarios/{idFuncionario}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos e recebidos\",\r\n    \"salario\": 6500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/funcionarios/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/funcionarios/{idFuncionario}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/funcionarios/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Este é o endpoint de cargos da aplicação"
+		},
+		{
+			"name": "Pagamento",
+			"item": [
+				{
+					"name": "/servicos/pagamentos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/pagamentos",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"pagamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/pagamentos/{idPagamento}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/pagamentos/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"pagamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/pagamentosPeloStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/pagamentosPeloStatus",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"pagamentosPeloStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/pagamentosChamadosComCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/pagamentosChamadosComCliente",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"pagamentosChamadosComCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/pagamentos/{idChamado}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos\",\r\n    \"salario\": 5500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/pagamentos/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"pagamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/pagamentos/{idPagamento}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos e recebidos\",\r\n    \"salario\": 6500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/pagamentos/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"pagamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/pagamentosAlteracaoStatus/{idPagamento}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos e recebidos\",\r\n    \"salario\": 6500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/pagamentosAlteracaoStatus/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"pagamentosAlteracaoStatus",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Este é o endpoint de cargos da aplicação"
+		},
+		{
+			"name": "Upload File",
+			"item": [
+				{
+					"name": "/servicos/funcionarios/envioFoto/{idFuncionario}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Supervisor\",\r\n    \"descricao\": \"Revisar os chamados atribuídos\",\r\n    \"salario\": 5500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/funcionarios/envioFoto/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"funcionarios",
+								"envioFoto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Este é o endpoint de cargos da aplicação"
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"jose@gmail.com\",\r\n    \"password\": \"batata\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/login",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/servicos/usuarios",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servicos/usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"jose1@gmail.com\",\r\n    \"password\": \"batata\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/servicos/usuarios",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"servicos",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb3NlQGdtYWlsLmNvbSIsImV4cCI6ODY0MDAwMTY1Nzg5MDI2Mn0.YvmYcgdVkZgVXxWWjuPiUmGPMo2N0VoKN1EAaMII9rznjZgKXy1kHCExT5UVIqGkfqh4AAkr_5Bg2scvsl1fTw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
