@@ -23,8 +23,8 @@ public class UploadFileController {
                                            @RequestParam("nome") String nome){
 
         String fileName = nome;
-        String uploadDir = "/home/tatiana/Downloads/fotoFunc";
-        String nomeMaisCaminho = "/home/tatiana/Downloads/fotoFunc/" + nome;
+        String uploadDir = "/home/priscila/Downloads/fotoFunc";
+        String nomeMaisCaminho = "/home/priscila/Downloads/fotoFunc/" + nome;
 
 
         try{
