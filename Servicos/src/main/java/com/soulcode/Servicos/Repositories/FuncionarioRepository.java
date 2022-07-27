@@ -14,6 +14,14 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Intege
     Optional<Funcionario> findByEmail(String email);
 
 
+    List<Funcionario> findByCargo(Optional<Cargo> cargo);
+
+
+    @Query(value = "SELECT * FROM funcionario WHERE foto is null",nativeQuery = true )
+    List<Object> funcionarioSemFoto();
+
+}
+
 
     List<Funcionario> findByCargo(Optional<Cargo> cargo);
 

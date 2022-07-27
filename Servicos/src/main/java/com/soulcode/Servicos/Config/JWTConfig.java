@@ -27,14 +27,14 @@ public class JWTConfig extends WebSecurityConfigurerAdapter {
     private JWTUtils jwtUtils;
 
     @Autowired
-    private AuthUserDetailService userDetailService;
+    private AuthUserDetailService authUserDetailService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // UserDetailsService -> carregar o usuário do banco
         // BCrypt -> gerador de hash de senhas
         // Usa passwordEncoder() para comparar senhas de login
-        auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(authUserDetailService).passwordEncoder(passwordEncoder());
     }
 
     @Override

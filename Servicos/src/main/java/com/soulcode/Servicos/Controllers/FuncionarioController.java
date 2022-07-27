@@ -1,6 +1,7 @@
 package com.soulcode.Servicos.Controllers;
 
 import com.soulcode.Servicos.Models.Funcionario;
+import com.soulcode.Servicos.Repositories.FuncionarioRepository;
 import com.soulcode.Servicos.Services.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +16,21 @@ import java.util.List;
 @RequestMapping("servicos")
 public class FuncionarioController {
 
+
+
     @Autowired
     FuncionarioService funcionarioService;
+
+
+    @Autowired
+    FuncionarioRepository funcionarioRepository;
 
     @GetMapping("/funcionarios/semChamado")
     public List<Funcionario> mostrarFuncionariosSemChamado(){
         List<Funcionario> funcionarios = funcionarioService.mostrarFuncionariosSemChamado();
         return funcionarios;
     }
+
 
     @GetMapping("/funcionarios")
     public List<Funcionario> mostrarTodosFuncionarios(){
@@ -48,12 +56,18 @@ public class FuncionarioController {
         return funcionarios;
     }
 
+    @GetMapping("/funcionarioSemFoto")
+    public List<Object> findByFuncionarioSemFoto(){
+
+        return this.funcionarioRepository.funcionarioSemFoto();
+    }
+
 
     @PostMapping("/funcionarios/{idCargo}")
     public ResponseEntity<Funcionario> cadastrarFuncionario(@PathVariable Integer idCargo, @RequestBody Funcionario funcionario){
         funcionario = funcionarioService.cadastrarFuncionario(funcionario,idCargo);
         URI novaUri = ServletUriComponentsBuilder.fromCurrentRequest().path("id")
-                .buildAndExpand(funcionario.getIdFuncionario()).toUri(); // funcionarios/31
+                .buildAndExpand(funcionario.getIdFuncionario()).toUri();
         return ResponseEntity.created(novaUri).body(funcionario);
 
     }
