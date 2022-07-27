@@ -21,8 +21,16 @@ public class FuncionarioController {
     @Autowired
     FuncionarioService funcionarioService;
 
+
     @Autowired
     FuncionarioRepository funcionarioRepository;
+
+    @GetMapping("/funcionarios/semChamado")
+    public List<Funcionario> mostrarFuncionariosSemChamado(){
+        List<Funcionario> funcionarios = funcionarioService.mostrarFuncionariosSemChamado();
+        return funcionarios;
+    }
+
 
     @GetMapping("/funcionarios")
     public List<Funcionario> mostrarTodosFuncionarios(){
@@ -57,7 +65,6 @@ public class FuncionarioController {
 
     @PostMapping("/funcionarios/{idCargo}")
     public ResponseEntity<Funcionario> cadastrarFuncionario(@PathVariable Integer idCargo, @RequestBody Funcionario funcionario){
-
         funcionario = funcionarioService.cadastrarFuncionario(funcionario,idCargo);
         URI novaUri = ServletUriComponentsBuilder.fromCurrentRequest().path("id")
                 .buildAndExpand(funcionario.getIdFuncionario()).toUri();
