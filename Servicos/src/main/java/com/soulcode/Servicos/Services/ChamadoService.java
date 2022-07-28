@@ -53,6 +53,9 @@ public class ChamadoService {
    public List<Chamado> buscarPorIntervaloData(Date data1, Date data2){
         return chamadoRepository.findByIntervaloData(data1,data2);
     }
+    public List<Chamado> buscarChamadosPeloPagamentoStatusLancado(){
+        return chamadoRepository.findByStatusLancado();
+    }
 
 
      public Chamado cadastrarChamado(Chamado chamado, Integer idCliente){
