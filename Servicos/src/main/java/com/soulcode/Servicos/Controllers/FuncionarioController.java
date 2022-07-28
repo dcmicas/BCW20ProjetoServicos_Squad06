@@ -54,6 +54,10 @@ public class FuncionarioController {
         return funcionarios;
     }
 
+    @GetMapping("/funcionariosQtdPeloCargo/{idCargo}")
+    public List<Object> FuncionariosQtdPeloCargo(@PathVariable Integer idCargo) {
+        return this.funcionarioRepository.FuncionariosQtdPeloCargo();
+    }
     @GetMapping("/funcionarioSemFoto")
     public List<Object> findByFuncionarioSemFoto(){
 
