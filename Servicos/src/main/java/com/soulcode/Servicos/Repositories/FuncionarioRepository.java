@@ -14,7 +14,7 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Intege
     Optional<Funcionario> findByEmail(String email);
 
     @Query(value = "SELECT * FROM funcionario WHERE foto is null",nativeQuery = true )
-    List<Object> funcionarioSemFoto();
+    List<Object> findByFuncionarioSemFoto();
 
 
     List<Funcionario> findByCargo(Optional<Cargo> cargo);
@@ -30,6 +30,7 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Intege
             "LEFT JOIN cargo\n" +
             "\tON funcionario.id_cargo = cargo.id_cargo\n" +
             "GROUP BY funcionario.id_cargo", nativeQuery = true)
-    List<Object> FuncionariosQtdPeloCargo();
+    List<Object> findByFuncionariosQtdPeloCargo();
+
 
 }
