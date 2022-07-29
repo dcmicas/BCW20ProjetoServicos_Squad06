@@ -33,6 +33,7 @@ public class FuncionarioService {
     }
 
     public List<Funcionario> mostrarFuncionariosSemChamado(){
+
         return funcionarioRepository.findFuncSemChamado();
     }
 
@@ -60,7 +61,7 @@ public class FuncionarioService {
     }
 
 
-    @CachePut(value = "funcionariosCache", key = "#funcionario.idFuncionario") //Chaves tudo ao final
+    @CachePut(value = "funcionariosCache", key = "#funcionario.idFuncionario")
     public Funcionario cadastrarFuncionario(Funcionario funcionario, Integer idCargo) throws DataIntegrityViolationException {
         funcionario.setIdFuncionario(null);
         Optional<Cargo> cargo = cargoRepository.findById(idCargo);
