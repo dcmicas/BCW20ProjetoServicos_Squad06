@@ -60,6 +60,9 @@ public class FuncionarioService {
         return funcionarioRepository.findByCargo(cargo);
     }
 
+    public List<Object> FuncionariosQtdPeloCargo() {return funcionarioRepository.findByFuncionariosQtdPeloCargo();}
+
+    public List<Object> findByFuncionarioSemFoto(){return funcionarioRepository.findByFuncionarioSemFoto();}
 
     @CachePut(value = "funcionariosCache", key = "#funcionario.idFuncionario")
     public Funcionario cadastrarFuncionario(Funcionario funcionario, Integer idCargo) throws DataIntegrityViolationException {

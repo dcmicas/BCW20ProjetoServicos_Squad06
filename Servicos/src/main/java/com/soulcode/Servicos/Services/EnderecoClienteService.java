@@ -4,6 +4,7 @@ import com.soulcode.Servicos.Models.Cliente;
 import com.soulcode.Servicos.Models.EnderecoCliente;
 import com.soulcode.Servicos.Repositories.ClienteRepository;
 import com.soulcode.Servicos.Repositories.EnderecoClienteRepository;
+import com.soulcode.Servicos.Services.Exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
