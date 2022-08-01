@@ -7,16 +7,18 @@ import com.soulcode.Servicos.Models.StatusChamado;
 import com.soulcode.Servicos.Repositories.ChamadoRepository;
 import com.soulcode.Servicos.Repositories.ClienteRepository;
 import com.soulcode.Servicos.Repositories.FuncionarioRepository;
+import com.soulcode.Servicos.Services.Exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
+@ControllerAdvice
 @Service
 public class ChamadoService {
 
@@ -38,7 +40,7 @@ public class ChamadoService {
     @Cacheable(value = "chamadosCache", key = "idchamado")
     public Chamado mostrarUmChamado(Integer idChamado) {
         Optional<Chamado> chamado = chamadoRepository.findById(idChamado);
-        return chamado.orElseThrow();
+        return chamado.orElseThrow(() -> new EntityNotFoundException("Chamado não encontrado " + idChamado));
     }
 
     @Cacheable(value = "chamadosCache", key = "#idCliente")

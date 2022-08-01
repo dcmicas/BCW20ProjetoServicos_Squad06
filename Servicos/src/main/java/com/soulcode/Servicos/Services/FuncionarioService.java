@@ -51,7 +51,7 @@ public class FuncionarioService {
     @Cacheable(value = "funcionariosCache", key = "#email")
     public Funcionario mostrarUmFuncionarioPeloEmail(String email){
         Optional<Funcionario> funcionario = funcionarioRepository.findByEmail(email);
-        return funcionario.orElseThrow();
+        return funcionario.orElseThrow( () -> new EntityNotFoundException("Funcionário não cadastrado: " + email));
     }
 
     @Cacheable(value = "funcionariosCache", key = "#idCargo")

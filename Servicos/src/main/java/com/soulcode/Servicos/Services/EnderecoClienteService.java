@@ -26,7 +26,7 @@ public class EnderecoClienteService {
 
     public EnderecoCliente mostrarUmEnderecoPeloId(Integer idEnderecoCli){
         Optional<EnderecoCliente> endereco = enderecoClienteRepository.findById(idEnderecoCli);
-        return endereco.orElseThrow();
+        return endereco.orElseThrow(() -> new EntityNotFoundException("Endereço não encontrado: " + idEnderecoCli));
     }
 
 
