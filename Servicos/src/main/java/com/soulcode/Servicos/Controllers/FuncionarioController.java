@@ -60,7 +60,6 @@ public class FuncionarioController {
     }
     @GetMapping("/funcionarioSemFoto")
     public List<Object> findByFuncionarioSemFoto(){
-
         return this.funcionarioRepository.findByFuncionarioSemFoto();
     }
 

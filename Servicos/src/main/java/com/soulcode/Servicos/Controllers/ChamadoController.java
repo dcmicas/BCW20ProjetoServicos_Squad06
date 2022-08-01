@@ -63,6 +63,11 @@ public class ChamadoController {
         return chamadoService.buscarChamadosPeloPagamentoStatusLancado();
     }
 
+    @GetMapping("/quantidadeDeChamadosPorStatus")
+    List<?> quantidadeDeChamadosPorStatus(){
+        return chamadoService.quantidadeDeChamadosPorStatus();
+    }
+
     @PostMapping("/chamados/{idCliente}")
     public ResponseEntity<Chamado> cadastrarChamado(@PathVariable Integer idCliente,
                                                     @RequestBody Chamado chamado){
