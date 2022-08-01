@@ -7,16 +7,18 @@ import com.soulcode.Servicos.Models.StatusChamado;
 import com.soulcode.Servicos.Repositories.ChamadoRepository;
 import com.soulcode.Servicos.Repositories.ClienteRepository;
 import com.soulcode.Servicos.Repositories.FuncionarioRepository;
+import com.soulcode.Servicos.Services.Exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
+@ControllerAdvice
 @Service
 public class ChamadoService {
 
@@ -29,28 +31,36 @@ public class ChamadoService {
     @Autowired
     FuncionarioRepository funcionarioRepository;
 
+    @Cacheable(value = "chamadosCache")
     public List<Chamado> mostrarTodosChamados(){
-        return chamadoRepository.findAll();	}
-
-    public Chamado mostrarUmChamado(Integer idChamado) {
-        Optional<Chamado> chamado = chamadoRepository.findById(idChamado);
-        return chamado.orElseThrow();
+        return chamadoRepository.findAll();
     }
 
-      public List<Chamado> buscarChamadosPeloCliente(Integer idCliente){
+
+    @Cacheable(value = "chamadosCache", key = "idchamado")
+    public Chamado mostrarUmChamado(Integer idChamado) {
+        Optional<Chamado> chamado = chamadoRepository.findById(idChamado);
+        return chamado.orElseThrow(() -> new EntityNotFoundException("Chamado não encontrado " + idChamado));
+    }
+
+    @Cacheable(value = "chamadosCache", key = "#idCliente")
+    public List<Chamado> buscarChamadosPeloCliente(Integer idCliente){
         Optional<Cliente> cliente = clienteRepository.findById(idCliente);
         return chamadoRepository.findByCliente(cliente);
     }
 
+    @Cacheable(value = "chamadosCache", key = "#Funcionario.idFuncionario")
     public List<Chamado> buscarChamadosPeloFuncionario(Integer idFuncionario){
         Optional<Funcionario> funcionario = funcionarioRepository.findById(idFuncionario);
         return chamadoRepository.findByFuncionario(funcionario);
     }
-   public List<Chamado> buscarChamadosPeloStatus(String status){
+    @Cacheable(value = "chamadosCache", key = "#status")
+    public List<Chamado> buscarChamadosPeloStatus(String status){
         return chamadoRepository.findByStatus(status);
     }
 
-   public List<Chamado> buscarPorIntervaloData(Date data1, Date data2){
+    @Cacheable(value = "chamadosCache", key = "(java.util.Objects).hash(#data1, #data2)")
+    public List<Chamado> buscarPorIntervaloData(Date data1, Date data2){
         return chamadoRepository.findByIntervaloData(data1,data2);
     }
     public List<Chamado> buscarChamadosPeloPagamentoStatusLancado(){
@@ -61,7 +71,7 @@ public class ChamadoService {
         return chamadoRepository.quantidadeDeChamadosPorStatus();
     }
 
-
+    @CachePut(value = "chamadosCache", key = "#chamado.idChamado")
      public Chamado cadastrarChamado(Chamado chamado, Integer idCliente){
         chamado.setStatus(StatusChamado.RECEBIDO);
         chamado.setFuncionario(null);
@@ -69,12 +79,12 @@ public class ChamadoService {
         chamado.setCliente(cliente.get());
         return chamadoRepository.save(chamado);
     }
-
+    @CacheEvict(value = "chamadoCache", key = "#idChamado", allEntries = true)
     public void excluirChamado(Integer idChamado){
         chamadoRepository.deleteById(idChamado);
     }
 
-
+    @CachePut(value = "chamadoCache", key = "#idChamado")
     public Chamado editarChamado(Chamado chamado, Integer idChamado){
 
         Chamado chamadoSemAsNovasAlteracoes = mostrarUmChamado(idChamado);
@@ -87,7 +97,7 @@ public class ChamadoService {
     }
 
 
-
+    @CachePut(value = "chamadoCache", key = "#idChamado")
     public Chamado atribuirFuncionario(Integer idChamado, Integer idFuncionario){
 
         Optional<Funcionario> funcionario = funcionarioRepository.findById(idFuncionario);
@@ -99,7 +109,7 @@ public class ChamadoService {
         return chamadoRepository.save(chamado);
     }
 
-
+    @CachePut(value = "chamadoCache", key = "#idChamado")
     public Chamado modificarStatus(Integer idChamado,String status){
         Chamado chamado = mostrarUmChamado(idChamado);
         switch (status){

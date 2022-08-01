@@ -33,6 +33,7 @@ public class FuncionarioService {
     }
 
     public List<Funcionario> mostrarFuncionariosSemChamado(){
+
         return funcionarioRepository.findFuncSemChamado();
     }
 
@@ -50,7 +51,7 @@ public class FuncionarioService {
     @Cacheable(value = "funcionariosCache", key = "#email")
     public Funcionario mostrarUmFuncionarioPeloEmail(String email){
         Optional<Funcionario> funcionario = funcionarioRepository.findByEmail(email);
-        return funcionario.orElseThrow();
+        return funcionario.orElseThrow( () -> new EntityNotFoundException("Funcionário não cadastrado: " + email));
     }
 
     @Cacheable(value = "funcionariosCache", key = "#idCargo")
@@ -59,8 +60,11 @@ public class FuncionarioService {
         return funcionarioRepository.findByCargo(cargo);
     }
 
+    public List<Object> FuncionariosQtdPeloCargo() {return funcionarioRepository.findByFuncionariosQtdPeloCargo();}
 
-    @CachePut(value = "funcionariosCache", key = "#funcionario.idFuncionario") //Chaves tudo ao final
+    public List<Object> findByFuncionarioSemFoto(){return funcionarioRepository.findByFuncionarioSemFoto();}
+
+    @CachePut(value = "funcionariosCache", key = "#funcionario.idFuncionario")
     public Funcionario cadastrarFuncionario(Funcionario funcionario, Integer idCargo) throws DataIntegrityViolationException {
         funcionario.setIdFuncionario(null);
         Optional<Cargo> cargo = cargoRepository.findById(idCargo);
