@@ -27,4 +27,8 @@ public interface ChamadoRepository extends JpaRepository<Chamado,Integer> {
             "INNER JOIN pagamento ON chamado.id_pagamento = pagamento.id_pagamento\n" +
             "WHERE pagamento.status = \"LANCADO\"",nativeQuery = true )
     List<Chamado> findByStatusLancado();
+
+    @Query(value="SELECT COUNT(id_chamado), chamado.status FROM chamado GROUP BY chamado.status", nativeQuery = true)
+    List<?> quantidadeDeChamadosPorStatus();
+
 }
