@@ -15,5 +15,5 @@ The application will automatically reload if you change any of the source files.
 ## Token
 
 Token expires every 24 hours. To update it, follow the steps bellow: <br>
-- At <b> Postman </b> , open the folder ´Usuarios´ and get the end point ´login´ to generate a new token; <br>
+- At <b> Postman </b> , open the folder `Usuarios` and get the end point `login` to generate a new token; <br>
 - At the main folder called `BCW20-Servicos_Squad06` > `Auth` > Token Tipe: `Bearer Token` > Copy the generated token
